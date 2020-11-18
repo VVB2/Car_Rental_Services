@@ -5,6 +5,7 @@
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -42,17 +43,11 @@
                         <FontAwesomeIcon fill="#eeeeee" glyphName="LOCK" size="24" />
                      </graphic>
                   </Label>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="215.0" promptText="Password" styleClass="txtfield" HBox.hgrow="ALWAYS">
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
+                  <PasswordField prefHeight="55.0" prefWidth="215.0" promptText="Password" styleClass="txtfield">
                      <font>
                         <Font size="14.0" />
                      </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                  </TextField>
+                  </PasswordField>
                </children>
             </HBox>
             <Button layoutX="28.0" layoutY="161.0" mnemonicParsing="false" onMouseClicked="#signin" prefHeight="45.0" prefWidth="260.0" styleClass="login-btn" text="SIGN IN">
