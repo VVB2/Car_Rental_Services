@@ -63,4 +63,9 @@ public class LandingPageController implements Initializable {
         }
         borderpane.setCenter(root);
     }
+
+    @FXML
+    private void loginbtn(MouseEvent event) {
+        loadUI("SignUp.fxml");
+    }
 }
