@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="Car_Rental_Services.jar" size="99439" download="eager" />
+    <jar href="Car_Rental_Services.jar" size="98140" download="eager" />
     <jar href="lib\fontawesomefx-8.2.jar" size="180341" download="eager" />
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Car_Rental_Services" >

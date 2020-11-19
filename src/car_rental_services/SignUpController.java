@@ -17,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 /**
@@ -27,28 +28,36 @@ import javafx.scene.layout.Pane;
 public class SignUpController implements Initializable {
 
     @FXML
-    private Pane loginscene;
-    @FXML
-    private Pane signupscene;
+    private BorderPane borderpane;
     @FXML
     private Button anchorpane;
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        loginscene.setVisible(false);
+
     }    
 
     @FXML
     private void login(MouseEvent event) {
-        
+        loadUI("LogIn.fxml");
     }
 
     @FXML
     private void signup(MouseEvent event) {
-        signupscene.setVisible(false);
-        loginscene.setVisible(true);
+        
     }
     
+    private void loadUI(String ui){
+        Parent root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource(ui));   
+        } catch(IOException ex) {
+            Logger.getLogger(LandingPageController.class.getName()).log(Level.SEVERE,null,ex);
+        }
+        borderpane.setCenter(root);
+    }
 }

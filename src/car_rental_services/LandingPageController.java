@@ -51,7 +51,7 @@ public class LandingPageController implements Initializable {
     
     @FXML
     private void signinbtn(MouseEvent event) {
-        loadUI("SignIn.fxml");
+        loadUI("SignUp.fxml");
     }
     
     private void loadUI(String ui){
@@ -66,6 +66,6 @@ public class LandingPageController implements Initializable {
 
     @FXML
     private void loginbtn(MouseEvent event) {
-        loadUI("SignUp.fxml");
+        loadUI("LogIn.fxml");
     }
 }
