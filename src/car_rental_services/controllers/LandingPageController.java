@@ -28,7 +28,8 @@ public class LandingPageController implements Initializable {
     
     @FXML
     private BorderPane borderpane;
-
+    Stage stage;
+    private double x,y;
     /**
      * Initializes the controller class.
      */
@@ -39,13 +40,13 @@ public class LandingPageController implements Initializable {
 
     @FXML
     private void minimize(MouseEvent event) {
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.setIconified(true);
     }
 
     @FXML
     private void close(MouseEvent event) {
-        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         stage.close();
     }
     
@@ -69,9 +70,6 @@ public class LandingPageController implements Initializable {
         loadUI("/car_rental_services/pages/LogIn.fxml");
     }
 
-    @FXML
-    private void journey(MouseEvent event) {
-    }
 
     @FXML
     private void home(MouseEvent event) {
@@ -85,4 +83,5 @@ public class LandingPageController implements Initializable {
     @FXML
     private void aboutUs(MouseEvent event) {
     }
+     
 }

@@ -50,3 +50,12 @@
     -fx-background-color: transparent;
     -fx-background-radius: 5;
 }
+.month {
+    -fx-border-color: #eee;
+    -fx-border-radius: 5;
+    -fx-border-width: 2px;
+}
+.month:active {
+    -fx-border-color: #70ad4d;
+    -fx-text-fill: #FFFFFF;
+}
