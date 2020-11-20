@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package car_rental_services;
+package car_rental_services.controllers;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,40 +13,45 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
  *
  * @author Admin
  */
-public class LogInController implements Initializable {
-
+public class LandingPageController implements Initializable {
+    
     @FXML
     private BorderPane borderpane;
+
     /**
      * Initializes the controller class.
-     * @param url
-     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        loadUI("/car_rental_services/pages/Home.fxml");
     }    
 
     @FXML
-    private void login(MouseEvent event) {
-        
+    private void minimize(MouseEvent event) {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.setIconified(true);
     }
 
     @FXML
-    private void signup(MouseEvent event) {
-        loadUI("SignUp.fxml");
+    private void close(MouseEvent event) {
+        Stage stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        stage.close();
+    }
+    
+    @FXML
+    private void signinbtn(MouseEvent event) {
+        loadUI("/car_rental_services/pages/SignUp.fxml");
     }
     
     private void loadUI(String ui){
@@ -57,5 +62,27 @@ public class LogInController implements Initializable {
             Logger.getLogger(LandingPageController.class.getName()).log(Level.SEVERE,null,ex);
         }
         borderpane.setCenter(root);
+    }
+
+    @FXML
+    private void loginbtn(MouseEvent event) {
+        loadUI("/car_rental_services/pages/LogIn.fxml");
+    }
+
+    @FXML
+    private void journey(MouseEvent event) {
+    }
+
+    @FXML
+    private void home(MouseEvent event) {
+        loadUI("/car_rental_services/pages/Home.fxml");
+    }
+
+    @FXML
+    private void policies(MouseEvent event) {
+    }
+
+    @FXML
+    private void aboutUs(MouseEvent event) {
     }
 }

@@ -22,7 +22,7 @@ public class Car_Rental_Services extends Application {
     @Override
     public void start(Stage stage) throws Exception {
         Parent root;
-        root = FXMLLoader.load(getClass().getResource("LandingPage.fxml"));
+        root = FXMLLoader.load(getClass().getResource("/car_rental_services/pages/LandingPage.fxml"));
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
             y = event.getSceneY();

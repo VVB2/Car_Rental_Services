@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Car_Rental_Services/src/car_rental_services/SignUp.fxml</file>
-            <file>file:/E:/Car_Rental_Services/src/car_rental_services/LogIn.fxml</file>
+            <file>file:/E:/Car_Rental_Services/src/car_rental_services/controllers/LandingPageController.java</file>
             <file>file:/E:/Car_Rental_Services/src/car_rental_services/Car_Rental_Services.java</file>
-            <file>file:/E:/Car_Rental_Services/src/car_rental_services/LandingPageController.java</file>
-            <file>file:/E:/Car_Rental_Services/src/car_rental_services/SignUpController.java</file>
-            <file>file:/E:/Car_Rental_Services/src/car_rental_services/LogInController.java</file>
+            <file>file:/E:/Car_Rental_Services/src/car_rental_services/controllers/SignUpController.java</file>
+            <file>file:/E:/Car_Rental_Services/src/car_rental_services/assests/Css/Styles.css</file>
+            <file>file:/E:/Car_Rental_Services/src/car_rental_services/controllers/HomeController.java</file>
+            <file>file:/E:/Car_Rental_Services/src/car_rental_services/pages/Home.fxml</file>
+            <file>file:/E:/Car_Rental_Services/src/car_rental_services/controllers/LogInController.java</file>
         </group>
     </open-files>
 </project-private>
