@@ -4,5 +4,9 @@ https://netbeans.org/downloads/8.2/rc/
 Also download Gluon Scene Builder from:
 https://gluonhq.com/products/scene-builder/
 
+Download Fontawesome .jar file:
+https://jar-download.com/artifacts/de.jensd/fontawesomefx/8.2/source-code
+Add it to libraries folder in netbeans.
+
 I have completed half the UI part and will be doing more of it.
-By that time please complete the database part and connect database to the signin UI.
+By that time please complete the database part and connect database to the signin and login UI.
