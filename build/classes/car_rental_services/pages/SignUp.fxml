@@ -16,23 +16,23 @@
    <center>
       <Pane prefHeight="276.0" prefWidth="347.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css" BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="170.0" layoutY="102.0" prefHeight="260.0" prefWidth="330.0" style="-fx-border-color: #eee; -fx-border-radius: 5;">
+            <Pane layoutX="170.0" layoutY="102.0" prefHeight="235.0" prefWidth="330.0" style="-fx-border-color: #eee; -fx-border-radius: 5;">
                <children>
-                  <HBox layoutX="35.0" layoutY="133.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
+                  <HBox layoutX="35.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
                      <children>
                         <Label alignment="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="title">
                            <graphic>
                               <FontAwesomeIcon fill="#eeeeee" glyphName="LOCK" size="24" />
                            </graphic>
                         </Label>
-                        <PasswordField prefHeight="48.0" prefWidth="218.0" promptText="Password" styleClass="txtfield">
+                        <PasswordField fx:id="password" prefHeight="48.0" prefWidth="218.0" promptText="Password" styleClass="txtfield">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </PasswordField>
                      </children>
                   </HBox>
-                  <Button fx:id="anchorpane" layoutX="35.0" layoutY="197.0" mnemonicParsing="false" onMouseClicked="#signup" prefHeight="45.0" prefWidth="260.0" styleClass="login-btn" text="SIGN UP">
+                  <Button layoutX="35.0" layoutY="164.0" mnemonicParsing="false" onMouseClicked="#signup" prefHeight="45.0" prefWidth="260.0" styleClass="login-btn" text="SIGN UP">
                      <font>
                         <Font name="Microsoft Sans Serif" size="15.0" />
                      </font>
@@ -40,34 +40,14 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <HBox layoutX="35.0" layoutY="78.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
+                  <HBox layoutX="35.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
                      <children>
                         <Label alignment="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="title">
                            <graphic>
                               <FontAwesomeIcon fill="#eeeeee" glyphName="FILE_TEXT" size="24" />
                            </graphic>
                         </Label>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="215.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
-                     </children>
-                  </HBox>
-                  <HBox layoutX="35.0" layoutY="24.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="title">
-                           <graphic>
-                              <FontAwesomeIcon fill="#eeeeee" glyphName="USER" size="24" />
-                           </graphic>
-                        </Label>
-                        <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="215.0" promptText="Username" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                        <TextField fx:id="mail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="215.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -98,6 +78,30 @@
                      </cursor>
                   </Button>
                </children>
+            </HBox>
+            <HBox fx:id="errorpass" alignment="CENTER" layoutX="70.0" layoutY="441.0" prefHeight="45.0" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" visible="false">
+               <children>
+                  <Label alignment="CENTER" text="Password must be greater than 8 characters and must contain at least 1 special character" textFill="#ff0033">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="errormail" alignment="CENTER" layoutX="253.0" layoutY="493.0" prefHeight="45.0" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" visible="false">
+               <children>
+                  <Label alignment="CENTER" text="Enter valid Email address" textFill="#ff0033">
+                     <font>
+                        <Font size="13.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding>
             </HBox>
          </children>
       </Pane>

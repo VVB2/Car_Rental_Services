@@ -41,10 +41,6 @@
     -fx-text-fill: #fff;
     -fx-background-color: transparent;
 }
-.selected:focused{
-    -fx-text-fill: #2A2C2B;
-    -fx-background-color: #00A38A;
-}
 .btns{
     -fx-text-fill: #fff;
     -fx-background-color: transparent;

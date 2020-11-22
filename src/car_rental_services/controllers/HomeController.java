@@ -5,6 +5,7 @@
  */
 package car_rental_services.controllers;
 
+import static car_rental_services.Car_Rental_Services.netIsAvailable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -46,7 +47,12 @@ public class HomeController implements Initializable {
     
     @FXML
     private void details(MouseEvent event) {
-        loadUI("/car_rental_services/pages/Details.fxml");
+        if(netIsAvailable()){
+            loadUI("/car_rental_services/pages/Details.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }
     
 }

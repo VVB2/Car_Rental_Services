@@ -58,7 +58,12 @@ public class LandingPageController implements Initializable {
     
     @FXML
     private void signinbtn(MouseEvent event) {
-        loadUI("/car_rental_services/pages/SignUp.fxml");
+        if(netIsAvailable()){
+            loadUI("/car_rental_services/pages/SignUp.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }
     
     private void loadUI(String ui){
@@ -73,21 +78,43 @@ public class LandingPageController implements Initializable {
 
     @FXML
     private void loginbtn(MouseEvent event) {
-        loadUI("/car_rental_services/pages/LogIn.fxml");
+        if(netIsAvailable()){
+            loadUI("/car_rental_services/pages/LogIn.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }
 
 
     @FXML
     private void home(MouseEvent event) {
-        loadUI("/car_rental_services/pages/Home.fxml");
+        if(netIsAvailable()){
+            loadUI("/car_rental_services/pages/Home.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }
 
     @FXML
     private void policies(MouseEvent event) {
+        if(netIsAvailable()){
+            loadUI("/car_rental_services/pages/Details.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }
 
     @FXML
     private void aboutUs(MouseEvent event) {
+        if(netIsAvailable()){
+            loadUI("/car_rental_services/pages/Details.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }
      
 }

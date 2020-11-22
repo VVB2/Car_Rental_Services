@@ -5,6 +5,7 @@
  */
 package car_rental_services.controllers;
 
+import static car_rental_services.Car_Rental_Services.netIsAvailable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -15,8 +16,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 
 /**
  * FXML Controller class
@@ -28,7 +32,12 @@ public class LogInController implements Initializable {
     @FXML
     private BorderPane borderpane;
     @FXML
-    private Label errormessage;
+    private HBox errormessage;
+    @FXML
+    private TextField mail;
+    private PasswordField pass;
+    @FXML
+    private PasswordField password;
     /**
      * Initializes the controller class.
      * @param url
@@ -41,12 +50,25 @@ public class LogInController implements Initializable {
 
     @FXML
     private void login(MouseEvent event) {
-        errormessage.setVisible(true);
+        if(mail.getText().isEmpty() || pass.getText().isEmpty()) {
+            errormessage.setVisible(true);
+        }
+        if(!mail.getText().matches(".*\\b@gmail.com\\b")) {
+            errormessage.setVisible(true);
+        }
+        else {
+            errormessage.setVisible(false);
+        }
     }
 
     @FXML
     private void signup(MouseEvent event) {
-        loadUI("/car_rental_services/pages/SignUp.fxml");
+        if(netIsAvailable()){
+            loadUI("/car_rental_services/pages/SignUp.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }
     
     private void loadUI(String ui){
