@@ -5,6 +5,7 @@
  */
 package car_rental_services.controllers;
 
+import static car_rental_services.Car_Rental_Services.netIsAvailable;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,18 +23,19 @@ import javafx.scene.layout.BorderPane;
  *
  * @author Admin
  */
-public class HomeController implements Initializable {
+public class InternetController implements Initializable {
 
     @FXML
     private BorderPane borderpane;
 
     /**
-     * Initializes the controller class. 
+     * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
     }    
-
+    
     private void loadUI(String ui){
         Parent root = null;
         try {
@@ -43,10 +45,15 @@ public class HomeController implements Initializable {
         }
         borderpane.setCenter(root);
     }
-    
+
     @FXML
-    private void details(MouseEvent event) {
-        loadUI("/car_rental_services/pages/Details.fxml");
+    private void refresh(MouseEvent event) {
+        if(netIsAvailable()) {
+            loadUI("/car_rental_services/pages/Home.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }
     
 }

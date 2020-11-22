@@ -9,8 +9,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -20,9 +19,8 @@ import javafx.scene.input.MouseEvent;
  */
 public class DetailsController implements Initializable {
 
-    private Label monthbtn;
     @FXML
-    private ComboBox<?> monthSelection;
+    private Button monthbtn;
 
     /**
      * Initializes the controller class.
@@ -32,7 +30,8 @@ public class DetailsController implements Initializable {
         // TODO
     }    
 
-    private void month(MouseEvent event) {
+    @FXML
+    private void months(MouseEvent event) {
         monthbtn.setStyle("-fx-border-color: #70ad4d");
         monthbtn.setStyle("-fx-text-fill: #fff");
         monthbtn.setStyle("-fx-border-width: 2px");

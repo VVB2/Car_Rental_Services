@@ -5,6 +5,10 @@
  */
 package car_rental_services;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -39,9 +43,27 @@ public class Car_Rental_Services extends Application {
     }
  
     /**
+     *
+     * @return
+     */
+    public static boolean netIsAvailable() {
+        try {
+            final URL url = new URL("http://www.google.com");
+            final URLConnection conn = url.openConnection();
+            conn.connect();
+            conn.getInputStream().close();
+            return true;
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            return false;
+        }
+    }
+    /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         launch(args);
     }
+    
 }

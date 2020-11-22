@@ -79,6 +79,11 @@
                   </Button>
                </children>
             </HBox>
+            <Label fx:id="errormessage" alignment="CENTER" layoutX="170.0" layoutY="430.0" prefHeight="45.0" prefWidth="330.0" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" text="Enter valid Email and Password" textFill="#ff0033" visible="false">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </center>
