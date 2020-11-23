@@ -43,7 +43,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
+                  <TextField fx:id="start" maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
@@ -56,7 +56,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField layoutX="10.0" layoutY="84.0" maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
+                  <TextField fx:id="end" layoutX="10.0" layoutY="84.0" maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
@@ -83,7 +83,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <JFXDatePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" showWeekNumbers="true" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
+                                    <JFXDatePicker fx:id="pickupdate" defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" showWeekNumbers="true" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
                                     <Label text="Select the time :" textFill="#eeeeee">
                                        <font>
                                           <Font size="14.0" />
@@ -92,7 +92,7 @@
                                           <Insets bottom="5.0" top="30.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <JFXTimePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
+                                    <JFXTimePicker fx:id="pickuptime" defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
                                  </children>
                                  <padding>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
@@ -111,7 +111,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <JFXDatePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
+                                    <JFXDatePicker fx:id="dropoffdate" defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
                                     <Label text="Select the time :" textFill="#eeeeee">
                                        <font>
                                           <Font size="14.0" />
@@ -120,7 +120,7 @@
                                           <Insets bottom="5.0" top="30.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <JFXTimePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
+                                    <JFXTimePicker fx:id="dropofftime" defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
                                  </children>
                                  <padding>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
@@ -163,6 +163,14 @@
                         <Insets left="389.0" top="-35.0" />
                      </VBox.margin>
                   </Button>
+                  <Label fx:id="error" style="-fx-border-color: #ff0033;" styleClass="month" text="Enter proper details" textFill="#ff0033" visible="false">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="82.0" top="-82.0" />
+                     </VBox.margin>
+                  </Label>
                </children>
             </VBox>
             <VBox fx:id="checkDetails" layoutX="170.0" visible="false">
@@ -186,10 +194,13 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label disable="true" maxWidth="300.0" prefHeight="30.0" textFill="#eeeeee">
+                  <Label fx:id="startpoint" maxWidth="300.0" prefHeight="30.0" textFill="#eeeeee">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
                   </Label>
                   <Label layoutX="10.0" layoutY="64.0" text="Your ending point :" textFill="#eeeeee">
                      <font>
@@ -199,10 +210,13 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <Label disable="true" layoutX="10.0" layoutY="98.0" maxWidth="300.0" prefHeight="30.0" textFill="#eeeeee">
+                  <Label fx:id="endpoint" layoutX="10.0" layoutY="98.0" maxWidth="300.0" prefHeight="30.0" textFill="#eeeeee">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
                   </Label>
                   <Label layoutX="10.0" layoutY="95.0" text="Pick Up Details :" textFill="#eeeeee">
                      <font>
@@ -226,12 +240,12 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Pane>
+                                    <Pane prefHeight="30.0">
                                        <children>
-                                          <Label textFill="#eeeeee" />
+                                          <Label fx:id="datepickup" layoutX="10.0" layoutY="10.0" textFill="#eeeeee" />
                                        </children>
                                        <VBox.margin>
-                                          <Insets bottom="29.0" left="98.0" top="-29.0" />
+                                          <Insets />
                                        </VBox.margin>
                                     </Pane>
                                     <Label text="Pick Up time :" textFill="#eeeeee">
@@ -242,16 +256,12 @@
                                           <Insets bottom="5.0" top="30.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Pane>
+                                    <Pane prefHeight="30.0">
                                        <children>
-                                          <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#eeeeee">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Button>
+                                          <Label fx:id="timepickup" layoutX="10.0" layoutY="10.0" textFill="#eeeeee" />
                                        </children>
                                        <VBox.margin>
-                                          <Insets left="98.0" top="-29.0" />
+                                          <Insets />
                                        </VBox.margin>
                                     </Pane>
                                  </children>
@@ -272,16 +282,12 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Pane>
+                                    <Pane prefHeight="30.0">
                                        <children>
-                                          <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#eeeeee">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Button>
+                                          <Label fx:id="datedropoff" layoutX="10.0" layoutY="10.0" textFill="#eeeeee" />
                                        </children>
                                        <VBox.margin>
-                                          <Insets bottom="29.0" left="98.0" top="-29.0" />
+                                          <Insets />
                                        </VBox.margin>
                                     </Pane>
                                     <Label text="Drop Off time :" textFill="#eeeeee">
@@ -292,16 +298,12 @@
                                           <Insets bottom="5.0" top="30.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Pane>
+                                    <Pane prefHeight="30.0">
                                        <children>
-                                          <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#eeeeee">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </Button>
+                                          <Label fx:id="timedropoff" layoutX="10.0" layoutY="10.0" textFill="#eeeeee" />
                                        </children>
                                        <VBox.margin>
-                                          <Insets left="98.0" top="-29.0" />
+                                          <Insets />
                                        </VBox.margin>
                                     </Pane>
                                  </children>
@@ -324,32 +326,28 @@
                         <Insets bottom="5.0" left="266.0" top="-202.0" />
                      </VBox.margin>
                   </Label>
-                  <HBox layoutX="200.0" layoutY="300.0">
-                     <children>
-                        <Button graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#back" styleClass="refresh" text="BACK">
-                           <HBox.margin>
-                              <Insets left="-150.0" top="250.0" />
-                           </HBox.margin>
-                           <graphic>
-                              <FontAwesomeIcon fill="#eeeeee" glyphName="BACKWARD" size="1.5em" />
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                        <Button contentDisplay="RIGHT" graphicTextGap="10.0" layoutX="-140.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#next" styleClass="refresh" text="NEXT">
-                           <graphic>
-                              <FontAwesomeIcon fill="#eeeeee" glyphName="FORWARD" size="1.5em" />
-                           </graphic>
-                           <HBox.margin>
-                              <Insets left="450.0" top="250.0" />
-                           </HBox.margin>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </Button>
-                     </children>
-                  </HBox>
+                  <Button graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#back" styleClass="refresh" text="BACK">
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="BACKWARD" size="1.5em" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="-165.0" top="250.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button contentDisplay="RIGHT" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#next" styleClass="refresh" text="NEXT">
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="FORWARD" size="1.5em" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="389.0" top="-35.0" />
+                     </VBox.margin>
+                  </Button>
                </children>
             </VBox>
          </children>

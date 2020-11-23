@@ -6,8 +6,14 @@
 package car_rental_services.controllers;
 
 import static car_rental_services.Car_Rental_Services.netIsAvailable;
+import com.jfoenix.controls.JFXDatePicker;
+import com.jfoenix.controls.JFXTimePicker;
 import java.io.IOException;
 import java.net.URL;
+import java.text.ParseException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,6 +22,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -26,7 +34,6 @@ import javafx.scene.layout.VBox;
  * @author Admin
  */
 public class DetailsController implements Initializable {
-
     private Button monthbtn;
     @FXML
     private VBox enterDetails;
@@ -34,6 +41,35 @@ public class DetailsController implements Initializable {
     private VBox checkDetails;
     @FXML
     private BorderPane borderpane;
+    @FXML
+    private TextField start;
+    @FXML
+    private TextField end;
+    @FXML
+    private JFXDatePicker pickupdate;
+    @FXML
+    private JFXTimePicker pickuptime;
+    @FXML
+    private JFXDatePicker dropoffdate;
+    @FXML
+    private JFXTimePicker dropofftime;
+    @FXML
+    private Label error;
+    @FXML
+    private Label startpoint;
+    @FXML
+    private Label endpoint;
+    @FXML
+    private Label timepickup;
+    @FXML
+    private Label datedropoff;
+    @FXML
+    private Label timedropoff;
+    @FXML
+    private Label datepickup;
+    
+    LocalDate date = LocalDate.now().plusDays(1); 
+    LocalTime time = LocalTime.now();
 
     private void loadUI(String ui){
         Parent root = null;
@@ -50,7 +86,11 @@ public class DetailsController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // TODO 
+        enterDetails.setVisible(true);
+        checkDetails.setVisible(false);
+        pickupdate.setValue(date);
+        pickuptime.setValue(time);
     }    
 
     private void months(MouseEvent event) {
@@ -70,9 +110,20 @@ public class DetailsController implements Initializable {
     }
 
     @FXML
-    private void check(MouseEvent event) {
-        checkDetails.setVisible(true);
-        enterDetails.setVisible(false);
+    private void check(MouseEvent event) throws ParseException {
+        if(start.getText().isEmpty() || end.getText().isEmpty() || dropoffdate.getValue() == null || dropofftime.getValue() == null) {
+            error.setVisible(true);
+        }
+        else {
+            startpoint.setText(start.getText());
+            endpoint.setText(end.getText());
+            timepickup.setText(pickuptime.getValue().toString().substring(0,5).trim());
+            datepickup.setText(pickupdate.getValue().toString());
+            timedropoff.setText(dropofftime.getValue().toString());
+            datedropoff.setText(dropoffdate.getValue().toString());
+            checkDetails.setVisible(true);
+            enterDetails.setVisible(false);
+        }
     }
 
     @FXML
