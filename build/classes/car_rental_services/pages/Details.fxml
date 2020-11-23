@@ -4,156 +4,355 @@
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="670.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_rental_services.controllers.DetailsController">
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="670.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_rental_services.controllers.DetailsController">
    <center>
-      <VBox BorderPane.alignment="CENTER">
+      <AnchorPane BorderPane.alignment="CENTER">
+         <BorderPane.margin>
+            <Insets left="16.0" />
+         </BorderPane.margin>
          <children>
-            <Label text="Enter starting point :" textFill="#eeeeee">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Label>
-            <TextField maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
-               <VBox.margin>
-                  <Insets bottom="30.0" />
-               </VBox.margin>
-            </TextField>
-            <Label layoutX="10.0" layoutY="64.0" text="Enter ending point :" textFill="#eeeeee">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="5.0" />
-               </VBox.margin>
-            </Label>
-            <TextField layoutX="10.0" layoutY="84.0" maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
-               <VBox.margin>
-                  <Insets bottom="30.0" />
-               </VBox.margin></TextField>
-            <Label layoutX="10.0" layoutY="95.0" text="Pick Up time :" textFill="#eeeeee">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="-70.0" />
-               </VBox.margin>
-            </Label>
-            <Pane>
+            <VBox fx:id="enterDetails" focusTraversable="true" layoutX="170.0">
                <children>
-                  <HBox>
+                  <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" prefWidth="320.0" text="Enter Your Journey Details" textFill="#eeeeee">
+                     <font>
+                        <Font name="Candara Bold" size="22.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="ROAD" size="1.5em" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Enter starting point :" textFill="#eeeeee">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label layoutX="10.0" layoutY="64.0" text="Enter ending point :" textFill="#eeeeee">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <TextField layoutX="10.0" layoutY="84.0" maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <Label layoutX="10.0" layoutY="95.0" text="Pick Up Details :" textFill="#eeeeee">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="-70.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Pane>
                      <children>
-                        <VBox prefHeight="180.0" prefWidth="300.0" style="-fx-background-color: #292C34; -fx-background-radius: 5;">
+                        <HBox>
                            <children>
-                              <Label text="Select the date :" textFill="#eeeeee">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Pane>
+                              <VBox prefHeight="180.0" prefWidth="300.0" style="-fx-background-color: #292C34; -fx-background-radius: 5;">
                                  <children>
-                                    <JFXDatePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
-                                 </children>
-                              </Pane>
-                              <Label text="Select the time :" textFill="#eeeeee">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="30.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Pane>
-                                 <children>
+                                    <Label text="Select the date :" textFill="#eeeeee">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <JFXDatePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" showWeekNumbers="true" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
+                                    <Label text="Select the time :" textFill="#eeeeee">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
                                     <JFXTimePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
                                  </children>
-                              </Pane>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="35.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="180.0" prefWidth="300.0" style="-fx-background-color: #292C34; -fx-background-radius: 5;">
+                                 <children>
+                                    <Label text="Select the date :" textFill="#eeeeee">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <JFXDatePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
+                                    <Label text="Select the time :" textFill="#eeeeee">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <JFXTimePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                              </VBox>
                            </children>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
-                           </padding>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="-170.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <Label layoutX="10.0" layoutY="95.0" text="Drop Off Details:" textFill="#eeeeee">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="266.0" top="-202.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#home" styleClass="refresh" text="BACK">
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="BACKWARD" size="1.5em" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="-165.0" top="250.0" />
+                     </VBox.margin>
+                  </Button>
+                  <Button contentDisplay="RIGHT" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#check" styleClass="refresh" text="NEXT">
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="FORWARD" size="1.5em" />
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <VBox.margin>
+                        <Insets left="389.0" top="-35.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+            </VBox>
+            <VBox fx:id="checkDetails" layoutX="170.0" visible="false">
+               <children>
+                  <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" prefWidth="320.0" text="Verify Your Details" textFill="#eeeeee">
+                     <font>
+                        <Font name="Candara Bold" size="22.0" />
+                     </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="CHECK" size="1.5em" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Your starting point :" textFill="#eeeeee">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label disable="true" maxWidth="300.0" prefHeight="30.0" textFill="#eeeeee">
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="64.0" text="Your ending point :" textFill="#eeeeee">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label disable="true" layoutX="10.0" layoutY="98.0" maxWidth="300.0" prefHeight="30.0" textFill="#eeeeee">
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label layoutX="10.0" layoutY="95.0" text="Pick Up Details :" textFill="#eeeeee">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="-70.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Pane>
+                     <children>
+                        <HBox>
+                           <children>
+                              <VBox prefHeight="180.0" prefWidth="300.0" style="-fx-background-color: #292C34; -fx-background-radius: 5;">
+                                 <children>
+                                    <Label text="Pick Up date :" textFill="#eeeeee">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Pane>
+                                       <children>
+                                          <Label textFill="#eeeeee" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="29.0" left="98.0" top="-29.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Label text="Pick Up time :" textFill="#eeeeee">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Pane>
+                                       <children>
+                                          <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#eeeeee">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="98.0" top="-29.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                                 <HBox.margin>
+                                    <Insets right="35.0" />
+                                 </HBox.margin>
+                              </VBox>
+                              <VBox layoutX="10.0" layoutY="10.0" prefHeight="180.0" prefWidth="300.0" style="-fx-background-color: #292C34; -fx-background-radius: 5;">
+                                 <children>
+                                    <Label text="Drop Off date :" textFill="#eeeeee">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Pane>
+                                       <children>
+                                          <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#eeeeee">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="29.0" left="98.0" top="-29.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Label text="Drop Off time :" textFill="#eeeeee">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" top="30.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <Pane>
+                                       <children>
+                                          <Button alignment="TOP_LEFT" disable="true" mnemonicParsing="false" style="-fx-background-color: transparent;" textFill="#eeeeee">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets left="98.0" top="-29.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets left="-170.0" />
+                     </VBox.margin>
+                  </Pane>
+                  <Label layoutX="10.0" layoutY="95.0" text="Drop Off Details :" textFill="#eeeeee">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="266.0" top="-202.0" />
+                     </VBox.margin>
+                  </Label>
+                  <HBox layoutX="200.0" layoutY="300.0">
+                     <children>
+                        <Button graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#back" styleClass="refresh" text="BACK">
                            <HBox.margin>
-                              <Insets right="35.0" />
+                              <Insets left="-150.0" top="250.0" />
                            </HBox.margin>
-                        </VBox>
-                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="180.0" prefWidth="300.0" style="-fx-background-color: #292C34; -fx-background-radius: 5;">
-                           <children>
-                              <Label text="Select the date :" textFill="#eeeeee">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Pane>
-                                 <children>
-                                    <JFXDatePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
-                                 </children>
-                              </Pane>
-                              <Label text="Select the time :" textFill="#eeeeee">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets bottom="5.0" top="30.0" />
-                                 </VBox.margin>
-                              </Label>
-                              <Pane>
-                                 <children>
-                                    <JFXTimePicker defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
-                                 </children>
-                              </Pane>
-                           </children>
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
-                           </padding>
-                        </VBox>
+                           <graphic>
+                              <FontAwesomeIcon fill="#eeeeee" glyphName="BACKWARD" size="1.5em" />
+                           </graphic>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <Button contentDisplay="RIGHT" graphicTextGap="10.0" layoutX="-140.0" layoutY="260.0" mnemonicParsing="false" onMouseClicked="#next" styleClass="refresh" text="NEXT">
+                           <graphic>
+                              <FontAwesomeIcon fill="#eeeeee" glyphName="FORWARD" size="1.5em" />
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="450.0" top="250.0" />
+                           </HBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </HBox>
                </children>
-               <VBox.margin>
-                  <Insets left="-170.0" />
-               </VBox.margin>
-            </Pane>
-            <Label layoutX="10.0" layoutY="95.0" text="Drop Off Time :" textFill="#eeeeee">
-               <font>
-                  <Font size="14.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="266.0" top="-202.0" />
-               </VBox.margin>
-            </Label>
+            </VBox>
          </children>
-         <BorderPane.margin>
-            <Insets left="185.0" />
-         </BorderPane.margin>
-      </VBox>
+      </AnchorPane>
    </center>
-   <top>
-      <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" prefHeight="33.0" prefWidth="399.0" text="Enter Your Journey Details" textFill="#eeeeee" BorderPane.alignment="CENTER">
-         <font>
-            <Font name="Candara Bold" size="22.0" />
-         </font>
-         <graphic>
-            <FontAwesomeIcon fill="#eeeeee" glyphName="ROAD" size="1.5em" />
-         </graphic>
-         <BorderPane.margin>
-            <Insets bottom="30.0" top="20.0" />
-         </BorderPane.margin>
-      </Label>
-   </top>
 </BorderPane>
