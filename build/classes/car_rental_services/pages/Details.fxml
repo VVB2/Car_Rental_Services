@@ -22,7 +22,7 @@
             <Insets left="16.0" />
          </BorderPane.margin>
          <children>
-            <VBox fx:id="enterDetails" focusTraversable="true" layoutX="170.0" visible="false">
+            <VBox fx:id="enterDetails" focusTraversable="true" layoutX="170.0">
                <children>
                   <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" prefWidth="320.0" text="Enter Your Journey Details" textFill="#eeeeee">
                      <font>
@@ -173,7 +173,7 @@
                   </Label>
                </children>
             </VBox>
-            <VBox fx:id="checkDetails" layoutX="170.0">
+            <VBox fx:id="checkDetails" layoutX="170.0" visible="false">
                <children>
                   <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" prefWidth="320.0" text="Verify Your Details" textFill="#eeeeee">
                      <font>
