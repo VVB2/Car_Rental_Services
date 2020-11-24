@@ -15,7 +15,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -35,7 +34,6 @@ public class LogInController implements Initializable {
     private HBox errormessage;
     @FXML
     private TextField mail;
-    private PasswordField pass;
     @FXML
     private PasswordField password;
     /**
@@ -50,7 +48,7 @@ public class LogInController implements Initializable {
 
     @FXML
     private void login(MouseEvent event) {
-        if(mail.getText().isEmpty() || pass.getText().isEmpty()) {
+        if(mail.getText().isEmpty() || password.getText().isEmpty()) {
             errormessage.setVisible(true);
         }
         if(!mail.getText().matches(".*\\b@gmail.com\\b")) {
@@ -58,6 +56,12 @@ public class LogInController implements Initializable {
         }
         else {
             errormessage.setVisible(false);
+            if(netIsAvailable()) {
+                loadUI("/car_rental_services/pages/LoginInHome.fxml");
+            }
+            else {
+                loadUI("/car_rental_services/pages/Internet.fxml");
+            }
         }
     }
 

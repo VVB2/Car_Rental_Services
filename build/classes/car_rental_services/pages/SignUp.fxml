@@ -10,100 +10,231 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane fx:id="borderpane" prefHeight="567.0" prefWidth="670.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_rental_services.controllers.SignUpController">
    <center>
-      <Pane prefHeight="276.0" prefWidth="347.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css" BorderPane.alignment="CENTER">
+      <StackPane BorderPane.alignment="CENTER">
          <children>
-            <Pane layoutX="170.0" layoutY="102.0" prefHeight="235.0" prefWidth="330.0" style="-fx-border-color: #eee; -fx-border-radius: 5;">
+            <Pane fx:id="signuppane" prefHeight="276.0" prefWidth="347.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css">
                <children>
-                  <HBox layoutX="35.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
+                  <Pane layoutX="170.0" layoutY="102.0" prefHeight="235.0" prefWidth="330.0" style="-fx-border-color: #eee; -fx-border-radius: 5;">
                      <children>
-                        <Label alignment="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="title">
-                           <graphic>
-                              <FontAwesomeIcon fill="#eeeeee" glyphName="LOCK" size="24" />
-                           </graphic>
-                        </Label>
-                        <PasswordField fx:id="password" prefHeight="48.0" prefWidth="218.0" promptText="Password" styleClass="txtfield">
+                        <HBox layoutX="35.0" layoutY="95.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="title">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#eeeeee" glyphName="LOCK" size="24" />
+                                 </graphic>
+                              </Label>
+                              <PasswordField fx:id="password" prefHeight="48.0" prefWidth="215.0" promptText="Password" styleClass="txtfield">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </PasswordField>
+                           </children>
+                        </HBox>
+                        <Button layoutX="35.0" layoutY="164.0" mnemonicParsing="false" onMouseClicked="#signup" prefHeight="45.0" prefWidth="260.0" styleClass="login-btn" text="SIGN UP">
                            <font>
-                              <Font size="14.0" />
+                              <Font name="Microsoft Sans Serif" size="15.0" />
                            </font>
-                        </PasswordField>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                        <HBox layoutX="35.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="title">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="#eeeeee" glyphName="FILE_TEXT" size="24" />
+                                 </graphic>
+                              </Label>
+                              <TextField fx:id="mail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="215.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </Pane>
+                  <HBox alignment="CENTER" layoutX="170.0" layoutY="380.0" prefHeight="45.0" prefWidth="330.0" style="-fx-border-color: #eee; -fx-border-radius: 5;">
+                     <children>
+                        <Label alignment="CENTER" text="Already have an account?" textFill="#eeeeee">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Button mnemonicParsing="false" onMouseClicked="#login" style="-fx-background-color: transparent;" text="LOGIN here" textFill="#1f63da">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
                      </children>
                   </HBox>
-                  <Button layoutX="35.0" layoutY="164.0" mnemonicParsing="false" onMouseClicked="#signup" prefHeight="45.0" prefWidth="260.0" styleClass="login-btn" text="SIGN UP">
-                     <font>
-                        <Font name="Microsoft Sans Serif" size="15.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
-                  <HBox layoutX="35.0" layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="45.0" prefWidth="260.0">
+                  <HBox fx:id="errorpass" alignment="CENTER" layoutX="70.0" layoutY="441.0" prefHeight="45.0" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" visible="false">
                      <children>
-                        <Label alignment="CENTER" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: #363b41;" styleClass="title">
-                           <graphic>
-                              <FontAwesomeIcon fill="#eeeeee" glyphName="FILE_TEXT" size="24" />
-                           </graphic>
-                        </Label>
-                        <TextField fx:id="mail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="215.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                        <Label alignment="CENTER" text="Password must be greater than 8 characters and must contain at least 1 special character" textFill="#ff0033">
                            <font>
-                              <Font size="14.0" />
+                              <Font size="13.0" />
                            </font>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <HBox.margin>
-                              <Insets />
-                           </HBox.margin>
-                        </TextField>
+                        </Label>
                      </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox fx:id="errormail" alignment="CENTER" layoutX="253.0" layoutY="493.0" prefHeight="45.0" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" visible="false">
+                     <children>
+                        <Label alignment="CENTER" text="Enter valid Email address" textFill="#ff0033">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
                   </HBox>
                </children>
             </Pane>
-            <HBox alignment="CENTER" layoutX="170.0" layoutY="380.0" prefHeight="45.0" prefWidth="330.0" style="-fx-border-color: #eee; -fx-border-radius: 5;">
+            <VBox fx:id="detailspane" visible="false">
                <children>
-                  <Label alignment="CENTER" text="Already have an account?" textFill="#eeeeee">
+                  <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" text="Enter Your Details" textFill="#eeeeee">
                      <font>
-                        <Font size="13.0" />
+                        <Font name="Candara Bold" size="22.0" />
                      </font>
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="DATABASE" size="1.5em" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets bottom="30.0" left="230.0" top="10.0" />
+                     </VBox.margin>
                   </Label>
-                  <Button mnemonicParsing="false" onMouseClicked="#login" style="-fx-background-color: transparent;" text="LOGIN here" textFill="#1f63da">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
+                  <HBox>
+                     <children>
+                        <Label prefHeight="45.0" text="First Name :" textFill="#eeeeee">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="150.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="fname" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your First Name" style="-fx-background-radius: 5;" styleClass="txtfield">
+                           <HBox.margin>
+                              <Insets left="38.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="83.0">
+                     <children>
+                        <Label prefHeight="45.0" text="Last Name :" textFill="#eeeeee">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="150.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="lname" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your Last Name" style="-fx-background-radius: 5;" styleClass="txtfield">
+                           <HBox.margin>
+                              <Insets left="38.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="148.0">
+                     <children>
+                        <Label prefHeight="45.0" text="Phone Number :" textFill="#eeeeee">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="150.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="phoneno" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your Phone Number" style="-fx-background-radius: 5;" styleClass="txtfield">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="20.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="213.0">
+                     <children>
+                        <Label prefHeight="45.0" text="Address" textFill="#eeeeee">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="150.0" />
+                           </HBox.margin>
+                        </Label>
+                        <TextField fx:id="address" alignment="TOP_LEFT" prefHeight="100.0" prefWidth="300.0" promptText="Enter Your Address" style="-fx-background-radius: 5;" styleClass="txtfield">
+                           <HBox.margin>
+                              <Insets left="61.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <Label fx:id="detailserror" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" text="Enter proper details" textFill="#ff0033" visible="false">
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="250.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Button contentDisplay="RIGHT" graphicTextGap="10.0" mnemonicParsing="false" onMouseClicked="#next" styleClass="refresh" text="NEXT">
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="FORWARD" size="1.5em" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="550.0" top="50.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Button graphicTextGap="10.0" layoutX="560.0" layoutY="478.0" mnemonicParsing="false" onMouseClicked="#back" styleClass="refresh" text="BACK">
+                     <graphic>
+                        <FontAwesomeIcon fill="#eeeeee" glyphName="BACKWARD" size="1.5em" />
+                     </graphic>
+                     <VBox.margin>
+                        <Insets left="30.0" top="-29.0" />
+                     </VBox.margin>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
                </children>
-            </HBox>
-            <HBox fx:id="errorpass" alignment="CENTER" layoutX="70.0" layoutY="441.0" prefHeight="45.0" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" visible="false">
-               <children>
-                  <Label alignment="CENTER" text="Password must be greater than 8 characters and must contain at least 1 special character" textFill="#ff0033">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
-            <HBox fx:id="errormail" alignment="CENTER" layoutX="253.0" layoutY="493.0" prefHeight="45.0" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" visible="false">
-               <children>
-                  <Label alignment="CENTER" text="Enter valid Email address" textFill="#ff0033">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </HBox>
+            </VBox>
          </children>
-      </Pane>
+      </StackPane>
    </center>
 </BorderPane>

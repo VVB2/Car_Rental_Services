@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="670.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_rental_services.controllers.HomeController">
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="567.0" prefWidth="670.0" stylesheets="@../assests/Css/Styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="car_rental_services.controllers.HomeController">
    <center>
       <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vmax="3.0" BorderPane.alignment="CENTER">
          <content>
@@ -23,32 +23,33 @@
                      <children>
                         <VBox style="-fx-background-color: #eee;">
                            <children>
-                              <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="DRIVE IN A SANITIZED RENTOMOJO CAR" textFill="#eeeeee">
-                                 <graphic>
-                                    <ImageView fitHeight="300.0" fitWidth="670.0" pickOnBounds="true">
-                                       <image>
-                                          <Image url="@../assests/Images/background_image.jpg" />
-                                       </image>
-                                    </ImageView>
-                                 </graphic>
-                                 <font>
-                                    <Font name="Franklin Gothic Medium" size="26.0" />
-                                 </font>
-                              </Label>
-                              <Button contentDisplay="RIGHT" graphicTextGap="100.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#details" prefHeight="42.0" prefWidth="350.0" style="-fx-background-radius: 5; -fx-background-color: #fff;" text="Start Your Wonderful Journey" textFill="#212121">
-                                 <VBox.margin>
-                                    <Insets left="170.0" top="-90.0" />
-                                 </VBox.margin>
-                                 <graphic>
-                                    <FontAwesomeIcon fill="#212121" glyphName="ANGLE_RIGHT" size="2.2em" />
-                                 </graphic>
-                                 <font>
-                                    <Font size="15.0" />
-                                 </font>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
+                              <Pane>
+                                 <children>
+                                    <Label alignment="TOP_LEFT" contentDisplay="CENTER" text="DRIVE IN A SANITIZED RENTOMOJO CAR" textFill="#eeeeee">
+                                       <graphic>
+                                          <ImageView fitHeight="300.0" fitWidth="670.0" pickOnBounds="true">
+                                             <image>
+                                                <Image url="@../assests/Images/background_image.jpg" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                       <font>
+                                          <Font name="Franklin Gothic Medium" size="26.0" />
+                                       </font>
+                                    </Label>
+                                    <Button contentDisplay="RIGHT" graphicTextGap="100.0" layoutX="180.0" layoutY="200.0" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#details" prefHeight="42.0" prefWidth="350.0" style="-fx-background-radius: 5; -fx-background-color: #fff;" text="Start Your Wonderful Journey" textFill="#212121">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="#212121" glyphName="ANGLE_RIGHT" size="2.2em" />
+                                       </graphic>
+                                       <font>
+                                          <Font size="15.0" />
+                                       </font>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </Pane>
                               <Pane>
                                  <VBox.margin>
                                     <Insets bottom="50.0" top="47.0" />

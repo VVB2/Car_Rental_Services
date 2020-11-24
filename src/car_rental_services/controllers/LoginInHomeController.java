@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 
@@ -23,16 +24,19 @@ import javafx.scene.layout.BorderPane;
  *
  * @author Admin
  */
-public class HomeController implements Initializable {
+public class LoginInHomeController implements Initializable {
 
     @FXML
     private BorderPane borderpane;
+    @FXML
+    private Label name;
 
     /**
      * Initializes the controller class. 
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        name.setText("Welcome Vinod!");
     }    
 
     private void loadUI(String ui){

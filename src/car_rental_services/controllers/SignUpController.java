@@ -15,13 +15,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
@@ -40,6 +41,20 @@ public class SignUpController implements Initializable {
     private HBox errorpass;
     @FXML
     private HBox errormail;
+    @FXML
+    private Pane signuppane;
+    @FXML
+    private VBox detailspane;
+    @FXML
+    private TextField fname;
+    @FXML
+    private TextField lname;
+    @FXML
+    private TextField phoneno;
+    @FXML
+    private TextField address;
+    @FXML
+    private Label detailserror;
     /**
      * Initializes the controller class.
      * @param url
@@ -47,6 +62,8 @@ public class SignUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        signuppane.setVisible(true);
+        detailspane.setVisible(false);
     }    
 
     @FXML
@@ -74,6 +91,8 @@ public class SignUpController implements Initializable {
         else {
             errorpass.setVisible(false);
             errormail.setVisible(false);
+            signuppane.setVisible(false);
+            detailspane.setVisible(true);
         }
     }
     
@@ -86,4 +105,30 @@ public class SignUpController implements Initializable {
         }
         borderpane.setCenter(root);
     }
+
+    @FXML
+    private void next(MouseEvent event) {
+        if(fname.getText().isEmpty() || lname.getText().isEmpty() || address.getText().isEmpty() || phoneno.getText().isEmpty()){
+            detailserror.setVisible(true);
+        }
+        else if(!phoneno.getText().matches("\\d{10}")) {
+            detailserror.setVisible(true);
+        }
+        else {
+            detailserror.setVisible(false);
+            if(netIsAvailable()) {
+                loadUI("/car_rental_services/pages/LoginInHome.fxml");
+            }
+            else {
+                loadUI("/car_rental_services/pages/Internet.fxml");
+            }
+        }
+    }
+
+    @FXML
+    private void back(MouseEvent event) {
+        detailspane.setVisible(false);
+        signuppane.setVisible(true);
+    }
+
 }

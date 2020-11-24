@@ -13,7 +13,6 @@ import java.net.URL;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -115,8 +114,8 @@ public class DetailsController implements Initializable {
             error.setVisible(true);
         }
         else {
-            startpoint.setText(start.getText());
-            endpoint.setText(end.getText());
+            startpoint.setText(start.getText().substring(0, 1).toUpperCase() + start.getText().substring(1));
+            endpoint.setText(end.getText().substring(0, 1).toUpperCase() + end.getText().substring(1));
             timepickup.setText(pickuptime.getValue().toString().substring(0,5).trim());
             datepickup.setText(pickupdate.getValue().toString());
             timedropoff.setText(dropofftime.getValue().toString());
@@ -134,7 +133,5 @@ public class DetailsController implements Initializable {
 
     @FXML
     private void next(MouseEvent event) {
-    }
-
-    
+    }  
 }
