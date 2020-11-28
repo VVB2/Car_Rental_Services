@@ -16,8 +16,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -29,9 +29,16 @@ import javafx.stage.Stage;
 public class LandingPageController implements Initializable {
     
     Stage stage;
-    private double x,y;
+    String restore = "-fx-background-color:transparent";
+    String colour = "-fx-background-color:#212121;-fx-background-radius:10";
     @FXML
     private BorderPane borderpane;
+    @FXML
+    private Button Home;
+    @FXML
+    private Button Login;
+    @FXML
+    private Button Signup;
     /**
      * Initializes the controller class.
      */
@@ -59,6 +66,9 @@ public class LandingPageController implements Initializable {
     
     @FXML
     private void signinbtn(MouseEvent event) {
+        Signup.setStyle(colour);
+        Login.setStyle(restore);
+        Home.setStyle(restore);
         if(netIsAvailable()){
             loadUI("/car_rental_services/pages/SignUp.fxml");
         }
@@ -79,6 +89,9 @@ public class LandingPageController implements Initializable {
 
     @FXML
     private void loginbtn(MouseEvent event) {
+        Signup.setStyle(restore);
+        Login.setStyle(colour);
+        Home.setStyle(restore);
         if(netIsAvailable()){
             loadUI("/car_rental_services/pages/LogIn.fxml");
         }
@@ -90,6 +103,9 @@ public class LandingPageController implements Initializable {
 
     @FXML
     private void home(MouseEvent event) {
+        Signup.setStyle(restore);
+        Login.setStyle(restore);
+        Home.setStyle(colour);
         if(netIsAvailable()){
             loadUI("/car_rental_services/pages/Home.fxml");
         }
@@ -97,14 +113,4 @@ public class LandingPageController implements Initializable {
             loadUI("/car_rental_services/pages/Internet.fxml");
         }
     }
-
-    @FXML
-    private void policies(MouseEvent event) {
-        if(netIsAvailable()){
-            loadUI("/car_rental_services/pages/Details.fxml");
-        }
-        else {
-            loadUI("/car_rental_services/pages/Internet.fxml");
-        }
-    } 
 }

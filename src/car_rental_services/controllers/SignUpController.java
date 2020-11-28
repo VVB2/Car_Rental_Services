@@ -62,8 +62,8 @@ public class SignUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        signuppane.setVisible(false);
-        detailspane.setVisible(true);       
+        signuppane.setVisible(true);
+        detailspane.setVisible(false);       
     }    
 
     @FXML

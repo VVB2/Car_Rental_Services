@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -30,6 +31,8 @@ public class LoginInHomeController implements Initializable {
     private BorderPane borderpane;
     @FXML
     public Label name;
+    @FXML
+    private Pane rented;
     /**
      * Initializes the controller class. 
      */ 
@@ -57,5 +60,20 @@ public class LoginInHomeController implements Initializable {
             loadUI("/car_rental_services/pages/Internet.fxml");
         }
     }   
+
+    @FXML
+    private void showDetails(MouseEvent event) {
+        rented.setVisible(true);
+    }
+
+    @FXML
+    private void rentedCar(MouseEvent event) {
+        if(netIsAvailable()) {
+            loadUI("/car_rental_services/pages/Rented.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
+    }
     
 }

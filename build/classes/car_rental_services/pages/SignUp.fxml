@@ -18,7 +18,7 @@
    <center>
       <StackPane BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="signuppane" prefHeight="276.0" prefWidth="347.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css" visible="false">
+            <Pane fx:id="signuppane" prefHeight="276.0" prefWidth="347.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css">
                <children>
                   <Pane layoutX="170.0" layoutY="102.0" prefHeight="235.0" prefWidth="330.0" style="-fx-border-color: #eee; -fx-border-radius: 5;">
                      <children>
@@ -109,7 +109,7 @@
                   </HBox>
                </children>
             </Pane>
-            <VBox fx:id="detailspane">
+            <VBox fx:id="detailspane" visible="false">
                <children>
                   <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" text="Enter Your Details" textFill="#eeeeee">
                      <font>

@@ -55,7 +55,7 @@
                                     <Insets bottom="50.0" top="47.0" />
                                  </VBox.margin>
                                  <children>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="20.0" text="THE RENTOMOJO CAR ADVANTAGE" textFill="#666666">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="150.0" layoutY="20.0" text="THE RENT-O-MOJO CAR ADVANTAGE" textFill="#666666">
                                        <font>
                                           <Font name="Franklin Gothic Medium" size="24.0" />
                                        </font>

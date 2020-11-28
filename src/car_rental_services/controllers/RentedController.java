@@ -15,26 +15,50 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 /**
  * FXML Controller class
  *
  * @author Admin
  */
-public class HomeController implements Initializable {
+public class RentedController implements Initializable {
 
+    @FXML
+    private VBox enterDetails;
+    @FXML
+    private Label start;
+    @FXML
+    private Label end;
+    @FXML
+    private Label pickdate;
+    @FXML
+    private Label picktime;
+    @FXML
+    private Label dropdate;
+    @FXML
+    private Label droptime;
+    @FXML
+    private Label carname;
+    @FXML
+    private ImageView carimg;
+    @FXML
+    private Label error;
     @FXML
     private BorderPane borderpane;
 
     /**
-     * Initializes the controller class. 
+     * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        // TODO
     }    
-
+    
     private void loadUI(String ui){
         Parent root = null;
         try {
@@ -46,12 +70,13 @@ public class HomeController implements Initializable {
     }
     
     @FXML
-    private void details(MouseEvent event) {
-        if(netIsAvailable()){
-            loadUI("/car_rental_services/pages/LogIn.fxml");
+    private void home(MouseEvent event) {
+        if(netIsAvailable()) {
+            loadUI("/car_rental_services/pages/LoginInHome.fxml");
         }
         else {
-            loadUI("/car_rental_services/pages/Internet.fxml");
-        }
-    }   
+        loadUI("/car_rental_services/pages/Internet.fxml");
+    }
+    }
+    
 }
