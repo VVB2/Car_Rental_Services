@@ -27,7 +27,7 @@
                                     <FontAwesomeIcon fill="#eeeeee" glyphName="LOCK" size="24" />
                                  </graphic>
                               </Label>
-                              <PasswordField fx:id="password" prefHeight="48.0" prefWidth="218.0" promptText="Password" styleClass="txtfield">
+                              <PasswordField fx:id="password" onMouseClicked="#invisible" prefHeight="48.0" prefWidth="218.0" promptText="Password" styleClass="txtfield">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -49,7 +49,7 @@
                                     <FontAwesomeIcon fill="#eeeeee" glyphName="FILE_TEXT" size="24" />
                                  </graphic>
                               </Label>
-                              <TextField fx:id="mail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="215.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                              <TextField fx:id="mail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#invisible" prefHeight="45.0" prefWidth="215.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

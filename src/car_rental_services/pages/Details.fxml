@@ -43,7 +43,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="start" maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
+                  <TextField fx:id="start" maxWidth="300.0" onMouseClicked="#invisible" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
@@ -56,7 +56,7 @@
                         <Insets bottom="5.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="end" layoutX="10.0" layoutY="84.0" maxWidth="300.0" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
+                  <TextField fx:id="end" layoutX="10.0" layoutY="84.0" maxWidth="300.0" onMouseClicked="#invisible" prefHeight="30.0" style="-fx-background-radius: 5;" styleClass="txtfield">
                      <VBox.margin>
                         <Insets bottom="30.0" />
                      </VBox.margin>
@@ -83,7 +83,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <JFXDatePicker fx:id="pickupdate" defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" showWeekNumbers="true" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
+                                    <JFXDatePicker fx:id="pickupdate" defaultColor="#3b4148" onMouseClicked="#invisible" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" showWeekNumbers="true" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
                                     <Label text="Select the time :" textFill="#eeeeee">
                                        <font>
                                           <Font size="14.0" />
@@ -92,7 +92,7 @@
                                           <Insets bottom="5.0" top="30.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <JFXTimePicker fx:id="pickuptime" defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
+                                    <JFXTimePicker fx:id="pickuptime" defaultColor="#3b4148" onMouseClicked="#invisible" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
                                  </children>
                                  <padding>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
@@ -111,7 +111,7 @@
                                           <Insets bottom="5.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <JFXDatePicker fx:id="dropoffdate" defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
+                                    <JFXDatePicker fx:id="dropoffdate" defaultColor="#3b4148" onMouseClicked="#invisible" prefHeight="30.0" prefWidth="250.0" promptText="Select a date" style="-fx-background-color: #fff; -fx-background-radius: 5;" styleClass="txtfield" />
                                     <Label text="Select the time :" textFill="#eeeeee">
                                        <font>
                                           <Font size="14.0" />
@@ -120,7 +120,7 @@
                                           <Insets bottom="5.0" top="30.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <JFXTimePicker fx:id="dropofftime" defaultColor="#3b4148" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
+                                    <JFXTimePicker fx:id="dropofftime" defaultColor="#3b4148" onMouseClicked="#invisible" prefHeight="30.0" prefWidth="250.0" promptText="Select the time" style="-fx-background-color: #fff;" />
                                  </children>
                                  <padding>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />

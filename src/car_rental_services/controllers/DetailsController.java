@@ -134,4 +134,9 @@ public class DetailsController implements Initializable {
     @FXML
     private void next(MouseEvent event) {
     }  
+
+    @FXML
+    private void invisible(MouseEvent event) {
+        error.setVisible(false);
+    }
 }

@@ -18,7 +18,7 @@
    <center>
       <StackPane BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="signuppane" prefHeight="276.0" prefWidth="347.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css">
+            <Pane fx:id="signuppane" prefHeight="276.0" prefWidth="347.0" styleClass="parent" stylesheets="@../assests/Css/Styles.css" visible="false">
                <children>
                   <Pane layoutX="170.0" layoutY="102.0" prefHeight="235.0" prefWidth="330.0" style="-fx-border-color: #eee; -fx-border-radius: 5;">
                      <children>
@@ -29,7 +29,7 @@
                                     <FontAwesomeIcon fill="#eeeeee" glyphName="LOCK" size="24" />
                                  </graphic>
                               </Label>
-                              <PasswordField fx:id="password" prefHeight="48.0" prefWidth="215.0" promptText="Password" styleClass="txtfield">
+                              <PasswordField fx:id="password" onMouseClicked="#invisible" prefHeight="48.0" prefWidth="215.0" promptText="Password" styleClass="txtfield">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -51,7 +51,7 @@
                                     <FontAwesomeIcon fill="#eeeeee" glyphName="FILE_TEXT" size="24" />
                                  </graphic>
                               </Label>
-                              <TextField fx:id="mail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="45.0" prefWidth="215.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
+                              <TextField fx:id="mail" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#invisible" prefHeight="45.0" prefWidth="215.0" promptText="Email" styleClass="txtfield" HBox.hgrow="ALWAYS">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -109,7 +109,7 @@
                   </HBox>
                </children>
             </Pane>
-            <VBox fx:id="detailspane" visible="false">
+            <VBox fx:id="detailspane">
                <children>
                   <Label alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" text="Enter Your Details" textFill="#eeeeee">
                      <font>
@@ -132,7 +132,7 @@
                               <Insets left="150.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="fname" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your First Name" style="-fx-background-radius: 5;" styleClass="txtfield">
+                        <TextField fx:id="fname" onMouseClicked="#invisible" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your First Name" style="-fx-background-radius: 5;" styleClass="txtfield">
                            <HBox.margin>
                               <Insets left="38.0" />
                            </HBox.margin>
@@ -152,7 +152,7 @@
                               <Insets left="150.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="lname" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your Last Name" style="-fx-background-radius: 5;" styleClass="txtfield">
+                        <TextField fx:id="lname" onMouseClicked="#invisible" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your Last Name" style="-fx-background-radius: 5;" styleClass="txtfield">
                            <HBox.margin>
                               <Insets left="38.0" />
                            </HBox.margin>
@@ -172,7 +172,7 @@
                               <Insets left="150.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="phoneno" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your Phone Number" style="-fx-background-radius: 5;" styleClass="txtfield">
+                        <TextField fx:id="phoneno" onMouseClicked="#invisible" prefHeight="45.0" prefWidth="300.0" promptText="Enter Your Phone Number" style="-fx-background-radius: 5;" styleClass="txtfield">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -192,7 +192,7 @@
                               <Insets left="150.0" />
                            </HBox.margin>
                         </Label>
-                        <TextField fx:id="address" alignment="TOP_LEFT" prefHeight="100.0" prefWidth="300.0" promptText="Enter Your Address" style="-fx-background-radius: 5;" styleClass="txtfield">
+                        <TextField fx:id="address" alignment="TOP_LEFT" onMouseClicked="#invisible" prefHeight="100.0" prefWidth="300.0" promptText="Enter Your Address" style="-fx-background-radius: 5;" styleClass="txtfield">
                            <HBox.margin>
                               <Insets left="61.0" />
                            </HBox.margin>

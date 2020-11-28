@@ -25,20 +25,19 @@ import javafx.scene.layout.BorderPane;
  * @author Admin
  */
 public class LoginInHomeController implements Initializable {
-
+    
     @FXML
     private BorderPane borderpane;
     @FXML
-    private Label name;
-
+    public Label name;
     /**
      * Initializes the controller class. 
-     */
+     */ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        name.setText("Welcome Vinod!");
+        
     }    
-
+      
     private void loadUI(String ui){
         Parent root = null;
         try {
@@ -58,4 +57,5 @@ public class LoginInHomeController implements Initializable {
             loadUI("/car_rental_services/pages/Internet.fxml");
         }
     }   
+    
 }

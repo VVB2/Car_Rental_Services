@@ -56,3 +56,13 @@
     -fx-border-radius: 5;
     -fx-border-width: 2px;
 }
+.right-border {
+    -fx-border-style: hidden solid hidden hidden; 
+    -fx-border-width: .5; 
+    -fx-border-color: #8d97a1;
+}
+.bottom-border {
+    -fx-border-style: hidden hidden solid hidden; 
+    -fx-border-width: .5; 
+    -fx-border-color: #8d97a1;
+}

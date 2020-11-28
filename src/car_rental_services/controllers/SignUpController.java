@@ -62,8 +62,8 @@ public class SignUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        signuppane.setVisible(true);
-        detailspane.setVisible(false);
+        signuppane.setVisible(false);
+        detailspane.setVisible(true);       
     }    
 
     @FXML
@@ -78,23 +78,59 @@ public class SignUpController implements Initializable {
 
     @FXML
     private void signup(MouseEvent event) {
-        if(password.getText().isEmpty()) {
-            errorpass.setVisible(true);          
-        }
-        if(mail.getText().isEmpty()) {
+        if(password.getText().isEmpty() || mail.getText().isEmpty()) {
+            errorpass.setVisible(true); 
             errormail.setVisible(true);
         }
-        if(password.getText().length() < 8 || password.getText().matches("[aA-zZ ]+$") && !mail.getText().matches(".*\\b@gmail.com\\b")) {
-            errorpass.setVisible(true);
-            errormail.setVisible(true);
+        else if(password.getText().length() < 8 || password.getText().matches("[aA-zZ ]+$")) {
+            if(!mail.getText().matches(".*\\b@gmail.com\\b")) {
+                errormail.setVisible(true);
+                errorpass.setVisible(true); 
         }
+            else {
+                errorpass.setVisible(true);
+            }         
+        }
+        
         else {
-            errorpass.setVisible(false);
-            errormail.setVisible(false);
             signuppane.setVisible(false);
             detailspane.setVisible(true);
         }
     }
+    
+    @FXML
+    private void next(MouseEvent event) throws IOException {
+        if(fname.getText().isEmpty() || lname.getText().isEmpty() || address.getText().isEmpty() || phoneno.getText().isEmpty()){
+            detailserror.setVisible(true);
+        }
+        else if(!phoneno.getText().matches("\\d{10}")) {
+            detailserror.setVisible(true);
+        }  
+        else {
+            String name = fname.getText();
+            if(netIsAvailable()) {
+                loadUI("/car_rental_services/pages/LoginInHome.fxml");
+            }
+            else {
+                loadUI("/car_rental_services/pages/Internet.fxml");
+            }
+        }
+    }
+
+    
+    @FXML
+    private void back(MouseEvent event) {
+        detailspane.setVisible(false);
+        signuppane.setVisible(true);
+    }
+    
+    @FXML
+    private void invisible(MouseEvent event) {
+        errormail.setVisible(false);
+        errorpass.setVisible(false);
+        detailserror.setVisible(false);
+    }
+    
     
     private void loadUI(String ui){
         Parent root = null;
@@ -105,30 +141,5 @@ public class SignUpController implements Initializable {
         }
         borderpane.setCenter(root);
     }
-
-    @FXML
-    private void next(MouseEvent event) {
-        if(fname.getText().isEmpty() || lname.getText().isEmpty() || address.getText().isEmpty() || phoneno.getText().isEmpty()){
-            detailserror.setVisible(true);
-        }
-        else if(!phoneno.getText().matches("\\d{10}")) {
-            detailserror.setVisible(true);
-        }
-        else {
-            detailserror.setVisible(false);
-            if(netIsAvailable()) {
-                loadUI("/car_rental_services/pages/LoginInHome.fxml");
-            }
-            else {
-                loadUI("/car_rental_services/pages/Internet.fxml");
-            }
-        }
-    }
-
-    @FXML
-    private void back(MouseEvent event) {
-        detailspane.setVisible(false);
-        signuppane.setVisible(true);
-    }
-
+    
 }

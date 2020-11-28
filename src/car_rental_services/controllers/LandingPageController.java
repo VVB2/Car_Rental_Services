@@ -32,8 +32,6 @@ public class LandingPageController implements Initializable {
     private double x,y;
     @FXML
     private BorderPane borderpane;
-    @FXML
-    private AnchorPane anchorpane;
     /**
      * Initializes the controller class.
      */
@@ -108,16 +106,5 @@ public class LandingPageController implements Initializable {
         else {
             loadUI("/car_rental_services/pages/Internet.fxml");
         }
-    }
-
-    @FXML
-    private void aboutUs(MouseEvent event) {
-        if(netIsAvailable()){
-            loadUI("/car_rental_services/pages/Details.fxml");
-        }
-        else {
-            loadUI("/car_rental_services/pages/Internet.fxml");
-        }
-    }
-     
+    } 
 }
