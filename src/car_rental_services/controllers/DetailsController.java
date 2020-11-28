@@ -133,6 +133,12 @@ public class DetailsController implements Initializable {
 
     @FXML
     private void next(MouseEvent event) {
+        if(netIsAvailable()) {
+            loadUI("/car_rental_services/pages/Cars.fxml");
+        }
+        else {
+            loadUI("/car_rental_services/pages/Internet.fxml");
+        }
     }  
 
     @FXML
