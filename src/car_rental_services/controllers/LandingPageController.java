@@ -107,7 +107,7 @@ public class LandingPageController implements Initializable {
         Login.setStyle(restore);
         Home.setStyle(colour);
         if(netIsAvailable()){
-            loadUI("/car_rental_services/pages/Home.fxml");
+            loadUI("/car_rental_services/pages/LoginInHome.fxml");
         }
         else {
             loadUI("/car_rental_services/pages/Internet.fxml");

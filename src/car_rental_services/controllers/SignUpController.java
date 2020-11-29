@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -44,17 +45,11 @@ public class SignUpController implements Initializable {
     @FXML
     private Pane signuppane;
     @FXML
-    private VBox detailspane;
+    private Button signupbtn;
     @FXML
-    private TextField fname;
+    private TextField username;
     @FXML
-    private TextField lname;
-    @FXML
-    private TextField phoneno;
-    @FXML
-    private TextField address;
-    @FXML
-    private Label detailserror;
+    private HBox success;
     /**
      * Initializes the controller class.
      * @param url
@@ -62,8 +57,7 @@ public class SignUpController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        signuppane.setVisible(true);
-        detailspane.setVisible(false);       
+        signuppane.setVisible(true);    
     }    
 
     @FXML
@@ -78,7 +72,7 @@ public class SignUpController implements Initializable {
 
     @FXML
     private void signup(MouseEvent event) {
-        if(password.getText().isEmpty() || mail.getText().isEmpty()) {
+        if(password.getText().isEmpty() || mail.getText().isEmpty() || username.getText().isEmpty()) {
             errorpass.setVisible(true); 
             errormail.setVisible(true);
         }
@@ -88,50 +82,24 @@ public class SignUpController implements Initializable {
                 errorpass.setVisible(true); 
         }
             else {
-                errorpass.setVisible(true);
-            }         
+                    errorpass.setVisible(true);
+                }         
         }
-        
         else {
-            signuppane.setVisible(false);
-            detailspane.setVisible(true);
-        }
+                if(netIsAvailable()) {
+                    loadUI("/car_rental_services/pages/LoginInHome.fxml");
+                }
+                else {
+                    loadUI("/car_rental_services/pages/Internet.fxml");
+                }
+            } 
     }
-    
-    @FXML
-    private void next(MouseEvent event) throws IOException {
-        if(fname.getText().isEmpty() || lname.getText().isEmpty() || address.getText().isEmpty() || phoneno.getText().isEmpty()){
-            detailserror.setVisible(true);
-        }
-        else if(!phoneno.getText().matches("\\d{10}")) {
-            detailserror.setVisible(true);
-        }  
-        else {
-            String name = fname.getText();
-            if(netIsAvailable()) {
-                loadUI("/car_rental_services/pages/LoginInHome.fxml");
-            }
-            else {
-                loadUI("/car_rental_services/pages/Internet.fxml");
-            }
-        }
-    }
-
-    
-    @FXML
-    private void back(MouseEvent event) {
-        detailspane.setVisible(false);
-        signuppane.setVisible(true);
-    }
-    
+      
     @FXML
     private void invisible(MouseEvent event) {
         errormail.setVisible(false);
         errorpass.setVisible(false);
-        detailserror.setVisible(false);
-    }
-    
-    
+    }  
     private void loadUI(String ui){
         Parent root = null;
         try {

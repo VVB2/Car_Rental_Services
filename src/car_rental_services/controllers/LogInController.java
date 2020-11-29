@@ -14,7 +14,9 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -47,7 +49,7 @@ public class LogInController implements Initializable {
     }    
 
     @FXML
-    private void login(MouseEvent event) {
+    private void login(MouseEvent event) throws InterruptedException {
         if(mail.getText().isEmpty() || password.getText().isEmpty()) {
             errormessage.setVisible(true);
         }
