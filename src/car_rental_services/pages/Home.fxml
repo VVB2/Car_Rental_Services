@@ -50,7 +50,7 @@
                                     </Button>
                                  </children>
                               </Pane>
-                              <Pane>
+                              <Pane fx:id="test">
                                  <VBox.margin>
                                     <Insets bottom="50.0" top="47.0" />
                                  </VBox.margin>

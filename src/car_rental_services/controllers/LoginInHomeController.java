@@ -38,7 +38,7 @@ public class LoginInHomeController implements Initializable {
      */ 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        name.setText("More Info!");
     }    
       
     private void loadUI(String ui){
@@ -50,7 +50,6 @@ public class LoginInHomeController implements Initializable {
         }
         borderpane.setCenter(root);
     }
-    
     @FXML
     private void details(MouseEvent event) {
         if(netIsAvailable()){

@@ -10,6 +10,10 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTimePicker;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -22,10 +26,14 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import utils.ConnectionUtil;
 
 /**
  * FXML Controller class
@@ -66,9 +74,30 @@ public class DetailsController implements Initializable {
     private Label timedropoff;
     @FXML
     private Label datepickup;
-    
+    Connection con = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
     LocalDate date = LocalDate.now().plusDays(1); 
     LocalTime time = LocalTime.now();
+    @FXML
+    private ScrollPane cars;
+    @FXML
+    private Pane Opel;
+    @FXML
+    private Pane Hyundai;
+    @FXML
+    private Pane Suzuki;
+    @FXML
+    private Pane Volvo;
+    @FXML
+    private Pane Ford_XV;
+    @FXML
+    private Pane Ford;
+    @FXML
+    private HBox errormessage;
+    String restore=String.format("-fx-background-color:#212121;-fx-background-radius:5;-fx-effect: dropshadow(three-pass-box, #fff, 3, 0, 0, 0)");
+    String bstyle=String.format("-fx-border-color:#70ad4d;-fx-border-width:2;-fx-border-radius:5");
+    int choice = 0;
 
     private void loadUI(String ui){
         Parent root = null;
@@ -88,6 +117,7 @@ public class DetailsController implements Initializable {
         // TODO 
         enterDetails.setVisible(true);
         checkDetails.setVisible(false);
+        cars.setVisible(false);
         pickupdate.setValue(date);
         pickuptime.setValue(time);
     }    
@@ -122,6 +152,7 @@ public class DetailsController implements Initializable {
             datedropoff.setText(dropoffdate.getValue().toString());
             checkDetails.setVisible(true);
             enterDetails.setVisible(false);
+            cars.setVisible(false);
         }
     }
 
@@ -129,20 +160,124 @@ public class DetailsController implements Initializable {
     private void back(MouseEvent event) {
         checkDetails.setVisible(false);
         enterDetails.setVisible(true);
+        cars.setVisible(false);
     }
 
     @FXML
     private void next(MouseEvent event) {
-        if(netIsAvailable()) {
-            loadUI("/car_rental_services/pages/Cars.fxml");
-        }
-        else {
-            loadUI("/car_rental_services/pages/Internet.fxml");
-        }
+        checkDetails.setVisible(false);
+        enterDetails.setVisible(false);
+        cars.setVisible(true);
     }  
+    public DetailsController() throws SQLException {
+        con = ConnectionUtil.conDB();
+    }
+    public String details() {
+        String status = "Success";
+            String sql = "insert into details (start,end,pickupdate,pickuptime,dropoffdate,dropofftime,car) values (?,?,?,?,?,?,?)";
+            try {
+                preparedStatement = con.prepareStatement(sql);
+                preparedStatement.setString(1, startpoint.getText());
+                preparedStatement.setString(2, endpoint.getText());
+                preparedStatement.setString(3, datepickup.getText());
+                preparedStatement.setString(4, timepickup.getText());
+                preparedStatement.setString(5, datedropoff.getText());
+                preparedStatement.setString(6, timedropoff.getText());
+                preparedStatement.setInt(7, choice);
+                preparedStatement.execute();
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+                status = "Exception";
+            }
+            return status;
+    }
 
     @FXML
     private void invisible(MouseEvent event) {
         error.setVisible(false);
     }
+
+    @FXML
+    private void opel(MouseEvent event) {
+        choice = 1;
+        Opel.setStyle(bstyle);
+        Hyundai.setStyle(restore);
+        Ford_XV.setStyle(restore);
+        Ford.setStyle(restore);
+        Suzuki.setStyle(restore);
+        Volvo.setStyle(restore);
+    }
+
+    @FXML
+    private void hyundai(MouseEvent event) {
+        choice = 2;
+        Opel.setStyle(restore);
+        Hyundai.setStyle(bstyle);
+        Ford_XV.setStyle(restore);
+        Ford.setStyle(restore);
+        Suzuki.setStyle(restore);
+        Volvo.setStyle(restore);
+    }
+
+    @FXML
+    private void suzuki(MouseEvent event) {
+        choice = 3;
+        Opel.setStyle(restore);
+        Hyundai.setStyle(restore);
+        Ford_XV.setStyle(restore);
+        Ford.setStyle(restore);
+        Suzuki.setStyle(bstyle);
+        Volvo.setStyle(restore);
+    }
+
+    @FXML
+    private void volvo(MouseEvent event) {
+        choice = 4;
+        Opel.setStyle(restore);
+        Hyundai.setStyle(restore);
+        Ford_XV.setStyle(restore);
+        Ford.setStyle(restore);
+        Suzuki.setStyle(restore);
+        Volvo.setStyle(bstyle);
+    }
+
+    @FXML
+    private void fordxv(MouseEvent event) {
+        choice = 5;
+        Opel.setStyle(restore);
+        Hyundai.setStyle(restore);
+        Ford_XV.setStyle(bstyle);
+        Ford.setStyle(restore);
+        Suzuki.setStyle(restore);
+        Volvo.setStyle(restore);
+    }
+
+    @FXML
+    private void ford(MouseEvent event) {  
+        choice = 6;
+        Opel.setStyle(restore);
+        Hyundai.setStyle(restore);
+        Ford_XV.setStyle(restore);
+        Ford.setStyle(bstyle);
+        Suzuki.setStyle(restore);
+        Volvo.setStyle(restore);
+    }
+
+    @FXML
+    private void finish(MouseEvent event) {
+        if(choice!=0) {
+            if(details().equals("Success")) {
+                if(netIsAvailable()) {
+                    loadUI("/car_rental_services/pages/LoginInHome.fxml");
+                }
+                else {
+                    loadUI("/car_rental_services/pages/Internet.fxml");
+                }
+            }
+        }
+        else {
+            errormessage.setVisible(true);
+        }
+    }
+
 }

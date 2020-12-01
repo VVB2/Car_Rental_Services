@@ -34,7 +34,7 @@
                               </PasswordField>
                            </children>
                         </HBox>
-                        <Button fx:id="loginbtn" layoutX="35.0" layoutY="164.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="45.0" prefWidth="260.0" styleClass="login-btn" text="LOG IN">
+                        <Button layoutX="35.0" layoutY="164.0" mnemonicParsing="false" onMouseClicked="#login" prefHeight="45.0" prefWidth="260.0" styleClass="login-btn" text="LOG IN">
                            <font>
                               <Font name="Microsoft Sans Serif" size="15.0" />
                            </font>
@@ -86,15 +86,6 @@
             <HBox fx:id="errormessage" alignment="CENTER" layoutX="170.0" layoutY="437.0" prefHeight="45.0" prefWidth="330.0" style="-fx-border-color: #ff0033; -fx-border-radius: 5;" visible="false">
                <children>
                   <Label alignment="CENTER" text="Enter valid Email and Password" textFill="#ff0033">
-                     <font>
-                        <Font size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox fx:id="success" alignment="CENTER" layoutX="170.0" layoutY="437.0" prefHeight="45.0" prefWidth="330.0" style="-fx-border-color: #70ad4d; -fx-border-radius: 5;" visible="false">
-               <children>
-                  <Label alignment="CENTER" text="Enter valid Email and Password" textFill="#70ad4d">
                      <font>
                         <Font size="13.0" />
                      </font>

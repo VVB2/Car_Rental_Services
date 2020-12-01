@@ -9,6 +9,11 @@ import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -24,7 +29,7 @@ import javafx.stage.StageStyle;
 public class Car_Rental_Services extends Application {
     private double x,y;
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception { 
         Parent root;
         root = FXMLLoader.load(getClass().getResource("/car_rental_services/pages/LandingPage.fxml"));
         root.setOnMousePressed(event -> {

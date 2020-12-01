@@ -1,27 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package car_rental_services.controllers;
 
 import static car_rental_services.Car_Rental_Services.netIsAvailable;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Cursor;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import utils.ConnectionUtil;
 
 /**
  * FXML Controller class
@@ -38,6 +36,9 @@ public class LogInController implements Initializable {
     private TextField mail;
     @FXML
     private PasswordField password;
+    Connection con = null;
+    PreparedStatement preparedStatement = null;
+    ResultSet resultSet = null;
     /**
      * Initializes the controller class.
      * @param url
@@ -45,18 +46,17 @@ public class LogInController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
     }    
-
+    
+    public LogInController() throws SQLException {
+        con = ConnectionUtil.conDB();
+    }
+    
+    
     @FXML
     private void login(MouseEvent event) throws InterruptedException {
-        if(mail.getText().isEmpty() || password.getText().isEmpty()) {
-            errormessage.setVisible(true);
-        }
-        if(!mail.getText().matches(".*\\b@gmail.com\\b")) {
-            errormessage.setVisible(true);
-        }
-        else {
+        if(logIn().equals("Success")) {
+            Thread.sleep(500);
             if(netIsAvailable()) {
                 loadUI("/car_rental_services/pages/LoginInHome.fxml");
             }
@@ -89,6 +89,31 @@ public class LogInController implements Initializable {
             Logger.getLogger(LandingPageController.class.getName()).log(Level.SEVERE,null,ex);
         }
         borderpane.setCenter(root);
+    }
+    private String logIn() {
+        String status = "Success";
+        String email = mail.getText();
+        String pass = password.getText();
+        if(email.isEmpty() || password.getText().isEmpty()) {
+            errormessage.setVisible(true);
+            status = "Error";
+        } else {
+            String sql = "SELECT * FROM users Where email = ? and password = ?";
+            try {
+                preparedStatement = con.prepareStatement(sql);
+                preparedStatement.setString(1, email);
+                preparedStatement.setString(2, pass);
+                resultSet = preparedStatement.executeQuery();
+                if (!resultSet.next()) { 
+                    errormessage.setVisible(true);
+                    status = "Error";
+                }
+            } catch (SQLException ex) {
+                System.err.println(ex.getMessage());
+                status = "Exception";
+            }
+        }       
+        return status;
     }
     
 }
